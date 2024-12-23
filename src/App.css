@@ -1,0 +1,58 @@
+@font-face {
+  font-family: yekan;
+  src: url("./fonts/Yekan-Bakh.ttf");
+}
+
+
+.App {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+body {
+  background-color: #f9bb6a !important;
+  font-family: yekan !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.video-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.rounded-container{
+  border: 6px solid #FFF;
+  border-radius: 50%;
+  width: 170px !important;
+  height: 170px !important;
+  padding: 0.5rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.canvas-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.font-container {
+  font-size: 30px !important;
+}
