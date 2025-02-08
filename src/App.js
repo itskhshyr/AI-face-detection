@@ -1,5 +1,5 @@
 import AIDetection from "./components/AIDetection";
-import AIGestures from "./components/AIGestures";
+
 
 const App = () => {
   return (
@@ -9,9 +9,7 @@ const App = () => {
           <AIDetection />
         </div>
       </div>
-      {/* <div>
-        <AIGestures />
-      </div> */}
+    
     </>
   );
 };

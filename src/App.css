@@ -28,23 +28,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100% !important;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
-.rounded-container{
+
+.rounded-container {
   border: 6px solid #FFF;
   border-radius: 50%;
-  width: 170px !important;
-  height: 170px !important;
-  padding: 0.5rem;
+  width: 300px !important;
+  height: 300px !important;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+
 .canvas-container {
   display: flex;
   height: 100vh;
@@ -56,3 +62,5 @@ body {
 .font-container {
   font-size: 30px !important;
 }
+
+

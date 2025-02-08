@@ -11,7 +11,7 @@ import sup from "../assets/sup.png";
 const AIDetection = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-
+  const [users, setUsers] = useState([]); // لیست کاربران شناسایی‌شده
   const [age, setAge] = useState(null);
   const [gender, setGender] = useState(null);
   const [genderProbability, setGenderProbability] = useState(null);
@@ -166,52 +166,58 @@ const AIDetection = () => {
   };
 
   return (
-    <div
-      className="shadow mt-5"
-      style={{ border: "6px solid #fff", borderRadius: "24px" }}
-    >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        onPlay={handleVideoPlay}
-        className="video-container"
-      />
-      <canvas
-        ref={canvasRef}
+    <div className="d-flex flex-column">
+      <div
+        className="shadow"
         style={{
-          position: "absolute",
-          top: 20,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 1,
+          border: "6px solid #fff",
+          borderRadius: "24px",
+          margin: "0 2rem",
         }}
-      />
+      >
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          onPlay={handleVideoPlay}
+          className="video-container"
+        />
+        <canvas
+          className=""
+          ref={canvasRef}
+          style={{
+            position: "absolute",
+            top: 20,
+            width: "85%",
+            height: "500px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1,
+          }}
+        />
+      </div>
 
       {/* نمایش جنسیت و سن در بخش UI */}
       <div
         style={{
-          position: "absolute",
-          bottom: "20rem",
-          left: "50%",
-          transform: "translateX(-50%)",
+          marginTop: "3rem",
           color: "white",
           textAlign: "center", // برای تراز وسط متن
         }}
       >
-        <div className="d-flex align-items-center mx-auto font-container">
-          <div className="d-flex align-items-center mx-3">
+        <div className="d-flex align-items-center mx-auto font-container mt-5">
+          <div className="d-flex flex-column align-items-center mx-3">
             <div className=" rounded-container ">
               <img src={ageIcon} className="img-fluid" />
             </div>
-            <div className="mx-4">{age !== null ? Math.round(age) : "-"}</div>
+            <div className="mt-5">{age !== null ? Math.round(age) : "-"}</div>
           </div>
 
-          <div className="d-flex align-items-center mx-3">
+          <div className="d-flex flex-column align-items-center mx-3">
             <div className=" rounded-container ">
               <img src={genderIcon} className="img-fluid" />
             </div>
-            <div className="mx-4">
+            <div className=" mt-5">
               {gender
                 ? gender === "male"
                   ? "آقا"
@@ -222,7 +228,7 @@ const AIDetection = () => {
             </div>
           </div>
 
-          <div className="d-flex align-items-center mx-3">
+          <div className="d-flex flex-column align-items-center mx-3">
             <div className=" rounded-container ">
               <img
                 src={getExpressionImage(expression)}
@@ -230,7 +236,7 @@ const AIDetection = () => {
                 alt="Emotion Sticker"
               />
             </div>
-            <div className="mx-4">{expression ? expression : "-"}</div>
+            <div className="mt-5">{expression ? expression : "-"}</div>
           </div>
         </div>
 
@@ -243,17 +249,6 @@ const AIDetection = () => {
             %
           </span>
         </div>
-        {/* <h2>Detected Information:</h2>
-        <p>Gender: {gender ? gender : "Not detected"}</p>
-        <p>
-          Gender Probability:{" "}
-          {genderProbability
-            ? Math.round(genderProbability * 100)
-            : "Not detected"}
-          %
-        </p>
-        <p>Age: {age !== null ? Math.round(age) : "Not detected"}</p>
-        <p>Emotion: {expression ? expression : "Not detected"}</p> */}
       </div>
     </div>
   );
