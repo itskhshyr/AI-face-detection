@@ -3,6 +3,70 @@
   src: url("./fonts/Yekan-Bakh.ttf");
 }
 
+@font-face {
+  font-family: popins;
+  src: url("./fonts/A-Mosalas.ttf");
+}
+
+
+.heartbeat {
+  display: inline-block;
+  animation: heartbeat 5s infinite;
+  -webkit-animation: heartbeat 5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.neon-text {
+
+  font-family: popins !important;
+  font-weight: bold;
+  color: #7B42A1;
+  /* متن بنفش */
+  text-align: center;
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff,
+    0 0 40px #ffffff,
+    0 0 80px #ffffff;
+}
+
+img {
+  cursor: pointer !important;
+}
+
+
 
 .App {
   display: flex;
@@ -11,16 +75,100 @@
   align-items: center;
 }
 
-
-body {
-  background-color: #f9bb6a !important;
-  font-family: yekan !important;
+.neon-text {
+  font-size: 68px !important;
+  font-family: popins !important;
+  font-weight: bold;
+  color: #7B42A1;
+  /* متن بنفش */
+  text-align: center;
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 20px #ffffff,
+    0 0 40px #ffffff,
+    0 0 40px #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+.neon-line {
+  position: relative;
+  margin: 1rem 0;
+  width: 100%;
+  height: 3px;
+  /* ضخامت خط */
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.neon-line::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: white;
+  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px #fff;
+  animation: neon-glow 2s infinite linear alternate;
+}
+
+@keyframes neon-glow {
+  0% {
+    left: -40%;
+    opacity: 0.4;
   }
+
+  50% {
+    left: 50%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0.4;
+  }
+}
+
+
+
+body {
+  /* background-color: #f9bb6a !important; */
+  font-family: yekan !important;
+  max-width: 100%;
+
+}
+
+.homepage-wrapper {
+  background: url("./assets/blur.png") no-repeat  top,
+    url("./assets/bg-home.png") no-repeat center;
+  background-size: 1500px auto, cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ .brand{
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: popins;
+  font-size: 28px;
+  padding: 5px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+.Ai-detection-wrapper {
+  background: url("./assets/bg-2.svg") no-repeat center;
+  background-size: cover !important;
+  width: 100%;
 }
 
 .video-container {
@@ -28,23 +176,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
-.rounded-container{
+
+.content-style {
+  font-size: 68px !important;
+  font-weight: 700;
+}
+
+.rounded-container {
   border: 6px solid #FFF;
   border-radius: 50%;
-  width: 170px !important;
-  height: 170px !important;
-  padding: 0.5rem;
+  width: 300px !important;
+  height: 300px !important;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+
 .canvas-container {
   display: flex;
   height: 100vh;
@@ -55,4 +214,21 @@ body {
 
 .font-container {
   font-size: 30px !important;
+}
+
+.back-btn {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100px;
+  height: 48px;
+  padding: 10px 28px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

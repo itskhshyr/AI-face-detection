@@ -1,18 +1,25 @@
 import AIDetection from "./components/AIDetection";
-import AIGestures from "./components/AIGestures";
-
+import Home from "./components/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  BrowserRouter,
+} from "react-router-dom";
 const App = () => {
+  const RoutesToShow = () => {
+    return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/main" element={<AIDetection />} />
+      </Routes>
+    );
+  };
   return (
-    <>
-      <div className="container-fluid vh-100">
-        <div className="d-flex justify-content-center align-items-center p-4">
-          <AIDetection />
-        </div>
-      </div>
-      {/* <div>
-        <AIGestures />
-      </div> */}
-    </>
+    <Router>
+      <RoutesToShow />
+    </Router>
   );
 };
 
